@@ -33,6 +33,7 @@ class MessageActivity : AppCompatActivity() {
 
         initializeViews()
         messageComposer.setStyle(R.style.CustomMessageComposerStyle)
+
         setupChat()
         //messageHeader.setBackgroundColor(Color.parseColor("#424242"))
         //messageComposer.setBackgroundColor(Color.parseColor("#424242"))
@@ -111,6 +112,7 @@ class MessageActivity : AppCompatActivity() {
     private fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
 
 
 }

@@ -66,7 +66,7 @@ fun AppScaffold(authKey: String) {
                 ChatLauncher(
                     navController,
 
-                    uid = "shyam21",
+                    uid = "ved21",
                     authKey = authKey,
                 )
             }

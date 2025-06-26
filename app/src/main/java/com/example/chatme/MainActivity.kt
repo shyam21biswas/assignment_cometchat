@@ -44,7 +44,7 @@ private val uiKitSettings = UIKitSettings.UIKitSettingsBuilder()
         })
     }
     private fun loginUser() {
-        CometChatUIKit.login("shyam21",object : CometChat.CallbackListener<User>() {
+        CometChatUIKit.login("ved21",object : CometChat.CallbackListener<User>() {
             override fun onSuccess(user: User)
             {
 

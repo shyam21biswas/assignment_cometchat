@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+
 import com.cometchat.chat.core.CometChat
 import com.cometchat.chat.exceptions.CometChatException
 import com.cometchat.chat.models.Group
@@ -12,6 +13,7 @@ import com.cometchat.chat.models.User
 import com.cometchat.chatuikit.messagecomposer.CometChatMessageComposer
 import com.cometchat.chatuikit.messageheader.CometChatMessageHeader
 import com.cometchat.chatuikit.messagelist.CometChatMessageList
+import android.graphics.Color
 
 class MessageActivity : AppCompatActivity() {
     private lateinit var messageHeader: CometChatMessageHeader
@@ -26,10 +28,17 @@ class MessageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContentView(R.layout.activity_message)
 
         initializeViews()
+        messageComposer.setStyle(R.style.CustomMessageComposerStyle)
         setupChat()
+        //messageHeader.setBackgroundColor(Color.parseColor("#424242"))
+        //messageComposer.setBackgroundColor(Color.parseColor("#424242"))
+
+
+
         setupHeaderBackButton()
     }
 
@@ -55,6 +64,8 @@ class MessageActivity : AppCompatActivity() {
     }
 
     private fun setupUserChat(userId: String) {
+        messageList.setIncomingMessageBubbleStyle(R.style.CustomIncomingMessageBubbleStyle)
+        messageList.setOutgoingMessageBubbleStyle(R.style.CustomOutgoingMessageBubbleStyle)
         CometChat.getUser(userId, object : CometChat.CallbackListener<User>() {
             override fun onSuccess(user: User) {
                 Log.d(TAG, "Successfully loaded user: ${user.uid}")
@@ -72,6 +83,9 @@ class MessageActivity : AppCompatActivity() {
     }
 
     private fun setupGroupChat(groupId: String) {
+        messageList.setIncomingMessageBubbleStyle(R.style.CustomIncomingMessageBubbleStyle)
+        messageList.setOutgoingMessageBubbleStyle(R.style.CustomOutgoingMessageBubbleStyle)
+
         CometChat.getGroup(groupId, object : CometChat.CallbackListener<Group>() {
             override fun onSuccess(group: Group) {
                 Log.d(TAG, "Successfully loaded group: ${group.guid}")
@@ -97,4 +111,6 @@ class MessageActivity : AppCompatActivity() {
     private fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
+
 }

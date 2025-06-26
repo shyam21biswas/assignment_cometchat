@@ -58,6 +58,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     // CometChat UIKit
     implementation(libs.cometchat.ui.kit)
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.compose.material:material:1.6.5")
+    implementation("androidx.compose.ui:ui:1.6.5")
 
     // (Optional) Include this if your app uses voice/video calling features
     //implementation ("com.cometchat:calls-sdk-android:4.1.0")

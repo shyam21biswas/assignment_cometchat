@@ -52,7 +52,6 @@ class TabbedActivity : AppCompatActivity() {
     private fun createFragmentForNavItem(itemId: Int): Fragment {
         return when (itemId) {
             R.id.nav_chats -> ChatsFragment()
-            R.id.nav_call_logs -> CallLogsFragment()
             R.id.nav_users -> UsersFragment()
             R.id.nav_groups -> GroupsFragment()
             else -> ChatsFragment()
